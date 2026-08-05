@@ -86,7 +86,12 @@
           "effect": "4-8 dmg, 15% crit\nExecution 1",
           "paths": "Rogue: forward 2, grants Block+",
           "icon": "icons/skills/highwayman_wicked-slice.png",
-          "effectUp": "6-9 dmg, 20% crit\nExecution 1"
+          "effectUp": "6-9 dmg, 20% crit\nExecution 1",
+          "pathRanks": {
+            "Rogue": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Pistol Shot",
@@ -96,7 +101,12 @@
           "effect": "3-6 dmg, 10% crit\nDaze When Target Combo",
           "paths": "Sharpshot: no Daze/Stun, DMG up to 7-10",
           "icon": "icons/skills/highwayman_pistol-shot.png",
-          "effectUp": "5-8 dmg, 15% crit\nStun When Target Combo"
+          "effectUp": "5-8 dmg, 15% crit\nStun When Target Combo",
+          "pathRanks": {
+            "Sharpshot": {
+              "ranks": "3-4"
+            }
+          }
         },
         {
           "name": "Duelist's Advance",
@@ -126,7 +136,12 @@
           "effect": "Self: Remove Blind\nCrit\nAllies: 1\nCD 2",
           "paths": "Rogue: CD 3, adds Speed + 2x Riposte + round-start Riposte buff (up. +25% Riposte DMG)",
           "icon": "icons/skills/highwayman_take-aim.png",
-          "effectUp": "Self: Remove Blind\nCrit x2\nAllies: 1\nCD 2"
+          "effectUp": "Self: Remove Blind\nCrit x2\nAllies: 1\nCD 2",
+          "pathRanks": {
+            "Rogue": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Point Blank Shot",
@@ -146,7 +161,20 @@
           "effect": "3-5 dmg, 5% crit\nSelf: Gain on CRIT: Strength",
           "paths": "Rogue: rank 4 only, self back 1; Sharpshot: front 1-2 / back 3-4; Yellowhand: -10% Bleed RES",
           "icon": "icons/skills/highwayman_grapeshot-blast.png",
-          "effectUp": "4-6 dmg, 10% crit\nDebuff -2 Speed (3 Turns)\nSelf: Gain per CRIT: Strength"
+          "effectUp": "4-6 dmg, 10% crit\nDebuff -2 Speed (3 Turns)\nSelf: Gain per CRIT: Strength",
+          "pathRanks": {
+            "Rogue": {
+              "ranks": "1",
+              "target": "1-3 (lasso)"
+            },
+            "Yellowhand": {
+              "ranks": "1-3"
+            },
+            "Sharpshot": {
+              "ranks": "3-4",
+              "target": "3-4 (lasso)"
+            }
+          }
         },
         {
           "name": "Open Vein",
@@ -166,7 +194,13 @@
           "effect": "4-8 dmg, 5% crit\n+30% DMG When Target HP < 30%",
           "paths": "Sharpshot: fires Second Shot if target survives (up. adds Execution)",
           "icon": "icons/skills/highwayman_double-tap.png",
-          "effectUp": "6-9 dmg, 10% crit\nExecution 1\n+30% DMG When Target HP < 50%"
+          "effectUp": "6-9 dmg, 10% crit\nExecution 1\n+30% DMG When Target HP < 50%",
+          "pathRanks": {
+            "Sharpshot": {
+              "ranks": "2-4",
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Highway Robbery",
@@ -176,7 +210,12 @@
           "effect": "5% crit\nIgnores Dodge\nRemove 2 Positive Tokens\nDebuff -5% CRIT (3 Turns)\nCD 1",
           "paths": "Yellowhand: -2 Bleed dealt (up. steals tokens + self +2 Bleed dealt)",
           "icon": "icons/skills/highwayman_highway-robbery.png",
-          "effectUp": "10% crit\nIgnores Dodge\nSteal 2 Positive Tokens\nDebuff -5% CRIT (3 Turns)\nSelf: Buff +5% CRIT (3 Turns)\nCD 1"
+          "effectUp": "10% crit\nIgnores Dodge\nSteal 2 Positive Tokens\nDebuff -5% CRIT (3 Turns)\nSelf: Buff +5% CRIT (3 Turns)\nCD 1",
+          "pathRanks": {
+            "Yellowhand": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Double Cross",
@@ -269,7 +308,13 @@
           "effect": "4-6 dmg, 5% crit\nSelf: Heal 10% When Target Combo",
           "paths": "Sergeant: allies ahead heal 2 HP / gain Immobilize (up.)",
           "icon": "icons/skills/man-at-arms_crush.png",
-          "effectUp": "5-7 dmg, 5% crit\nSelf: Heal 20% When Target Combo"
+          "effectUp": "5-7 dmg, 5% crit\nSelf: Heal 20% When Target Combo",
+          "pathRanks": {
+            "Sergeant": {
+              "ranks": "2-4",
+              "target": "1-2"
+            }
+          }
         },
         {
           "name": "Rampart",
@@ -319,7 +364,12 @@
           "effect": "5% crit\nRemove Riposte\nDebuff -2 Speed (3 Turns)\nCD 1",
           "paths": "Sergeant: allies ahead +3 Speed / remove 1 neg token (up.), CD 2. Bulwark: also removes Strength (+crit up.). Vanguard: targets self, +2 Stress, +2 stacks Vanguard buff/debuff",
           "icon": "icons/skills/man-at-arms_bellow.png",
-          "effectUp": "5% crit\nRemove Riposte, Crit\nDebuff -3 Speed (3 Turns)\nCD 1"
+          "effectUp": "5% crit\nRemove Riposte, Crit\nDebuff -3 Speed (3 Turns)\nCD 1",
+          "pathRanks": {
+            "Sergeant": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "Retribution",
@@ -329,7 +379,12 @@
           "effect": "Self: Riposte x2, Taunt x2\nAllies: 1\nCD 2",
           "paths": "Sergeant: all allies ahead; +Strength if HP <75% (<100% up.); +Crit if HP <25%",
           "icon": "icons/skills/man-at-arms_retribution.png",
-          "effectUp": "Self: Riposte x2, Taunt x2\nAllies: 1\nCD 1"
+          "effectUp": "Self: Riposte x2, Taunt x2\nAllies: 1\nCD 1",
+          "pathRanks": {
+            "Sergeant": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "Command",
@@ -349,7 +404,18 @@
           "effect": "Self: Block x2, Taunt x2\nBuff Turn Start: Block (3 Turns)\nAllies: 1\nCD 3",
           "paths": "Sergeant: all allies, +30-70% DoT + Move RES. Bulwark: self-only, removes Combo (up.). Vanguard: consumes Vanguard buffs/debuffs to heal 10% HP per 2 buffs / -1 Stress per 2 debuffs",
           "icon": "icons/skills/man-at-arms_stand-fast.png",
-          "effectUp": "Self: Block+ x2, Taunt x2\nBuff Turn Start: Block+ (3 Turns)\nAllies: 1\nCD 3"
+          "effectUp": "Self: Block+ x2, Taunt x2\nBuff Turn Start: Block+ (3 Turns)\nAllies: 1\nCD 3",
+          "pathRanks": {
+            "Sergeant": {
+              "ranks": "1-4"
+            },
+            "Bulwark": {
+              "ranks": "1-4"
+            },
+            "Vanguard": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Courageous Abandon",
@@ -359,7 +425,12 @@
           "effect": "6-8 dmg, 10% crit\nRequires Self Block\nIgnores Block\nBlock : Deals +100% DMG\nSelf: Remove Block\nVulnerable\nDebuff Cannot Gain Block (2 Turns)",
           "paths": "Vanguard: dmg 4-6; +2 dmg buff (stacks 3-5) with -6 Max HP debuff per stack (-4 up.)",
           "icon": "icons/skills/man-at-arms_courageous-abandon.png",
-          "effectUp": "8-10 dmg, 20% crit\nRequires Self Block\nIgnores Block\nBlock : Deals +100% DMG\nBlock : Execution 2\nSelf: Remove Block\nVulnerable\nDebuff Cannot Gain Block (2 Turns)"
+          "effectUp": "8-10 dmg, 20% crit\nRequires Self Block\nIgnores Block\nBlock : Deals +100% DMG\nBlock : Execution 2\nSelf: Remove Block\nVulnerable\nDebuff Cannot Gain Block (2 Turns)",
+          "pathRanks": {
+            "Vanguard": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Strategic Withdrawal",
@@ -483,7 +554,12 @@
           "effect": "Heal 20% when Target HP is below 50%\nRemove Damage over Time\nAllies: 1\n3 uses",
           "paths": "Surgeon: +25% heal vs Bleed/Blight/Burn",
           "icon": "icons/skills/plague-doctor_battlefield-medicine.png",
-          "effectUp": "Heal 25% when Target HP is below 50%\nRemove Damage over Time\nSelf: Remove Damage over Time\nAllies: 1\n3 uses"
+          "effectUp": "Heal 25% when Target HP is below 50%\nRemove Damage over Time\nSelf: Remove Damage over Time\nAllies: 1\n3 uses",
+          "pathRanks": {
+            "Surgeon": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Ounce of Prevention",
@@ -493,7 +569,12 @@
           "effect": "+20% Damage over Time RES\n+15% Disease RES\nAllies: 1\nCD 3",
           "paths": "—",
           "icon": "icons/skills/plague-doctor_ounce-of-prevention.png",
-          "effectUp": "+30% Damage over Time RES\n+30% Disease RES\n+10% Debuff RES\nAllies: 1\nCD 2"
+          "effectUp": "+30% Damage over Time RES\n+30% Disease RES\n+10% Debuff RES\nAllies: 1\nCD 2",
+          "pathRanks": {
+            "Surgeon": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Plague Grenade",
@@ -523,7 +604,16 @@
           "effect": "5% crit\nIgnores guarded\nShuffle, Daze\nRemove guarded",
           "paths": "Surgeon: self knockback (+Immobilize on CRIT up.). Alchemist: +Daze + Burn 3/4. Physician: AoE (CD 2), Vulnerable, hits adjacent even on miss",
           "icon": "icons/skills/plague-doctor_disorienting-blast.png",
-          "effectUp": "15% crit\nIgnores guarded\nShuffle, Daze, Weak\nRemove guarded\nStun When Target Combo"
+          "effectUp": "15% crit\nIgnores guarded\nShuffle, Daze, Weak\nRemove guarded\nStun When Target Combo",
+          "pathRanks": {
+            "Surgeon": {
+              "ranks": "1-2",
+              "target": "1-3"
+            },
+            "Physician": {
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Indiscriminate Science",
@@ -543,7 +633,16 @@
           "effect": "Ignores DMG Modifiers\nDeals 100% of remaining Damage over Time as DMG\nRemoves Damage over Time\nCD 2",
           "paths": "Surgeon: doubles all DoTs instead (single use). Alchemist: flat 5-8, ignores Block if Blight. Physician: support (+1 DOT Received / -1 DOT Dealt)",
           "icon": "icons/skills/plague-doctor_cause-of-death.png",
-          "effectUp": "Execution 1\nIgnores DMG Modifiers\nDeals 125% of remaining Damage over Time as DMG\nRemoves Damage over Time\nCD 2"
+          "effectUp": "Execution 1\nIgnores DMG Modifiers\nDeals 125% of remaining Damage over Time as DMG\nRemoves Damage over Time\nCD 2",
+          "pathRanks": {
+            "Surgeon": {
+              "ranks": "1-2"
+            },
+            "Physician": {
+              "ranks": "2-4",
+              "target": "1-4"
+            }
+          }
         },
         {
           "name": "Magnesium Rain",
@@ -553,7 +652,12 @@
           "effect": "5% crit\nBurn 3\nClear All Corpses\nCD 2",
           "paths": "Alchemist: conditional Burn/Bleed/Blight based on existing DoTs",
           "icon": "icons/skills/plague-doctor_magnesium-rain.png",
-          "effectUp": "10% crit\nBurn 3\nClear All Corpses\nSelf: Clear Skill Cooldowns if a Corpse is cleared\nCD 2"
+          "effectUp": "10% crit\nBurn 3\nClear All Corpses\nSelf: Clear Skill Cooldowns if a Corpse is cleared\nCD 2",
+          "pathRanks": {
+            "Alchemist": {
+              "ranks": "3-4"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -638,7 +742,12 @@
           "effect": "3-6 dmg, 15% crit\nIgnores Guarded\nIgnores Dodge When Stealth\n+50% CRIT When Target Combo",
           "paths": "Deadeye: +2 Speed on crit; Venomdrop: Weak vs blighted; Nightsworn: ignores Riposte in stealth",
           "icon": "icons/skills/grave-robber_thrown-dagger.png",
-          "effectUp": "4-8 dmg, 30% crit\nIgnores Guarded\nIgnores Dodge When Stealth\n+50% CRIT When Target Combo"
+          "effectUp": "4-8 dmg, 30% crit\nIgnores Guarded\nIgnores Dodge When Stealth\n+50% CRIT When Target Combo",
+          "pathRanks": {
+            "Deadeye": {
+              "ranks": "3-4"
+            }
+          }
         },
         {
           "name": "Flashing Daggers",
@@ -648,7 +757,16 @@
           "effect": "3-5 dmg, 15% crit",
           "paths": "Venomdrop: +2 Blight in stealth; Nightsworn: requires stealth, 50% consume (up. auto)",
           "icon": "icons/skills/grave-robber_flashing-daggers.png",
-          "effectUp": "4-6 dmg, 20% crit\nIgnores Dodge When Self Stealth"
+          "effectUp": "4-6 dmg, 20% crit\nIgnores Dodge When Self Stealth",
+          "pathRanks": {
+            "Deadeye": {
+              "ranks": "3-4",
+              "target": "3-4 (lasso)"
+            },
+            "Nightsworn": {
+              "target": "2-4 (lasso)"
+            }
+          }
         },
         {
           "name": "Poison Dart",
@@ -863,7 +981,12 @@
           "effect": "4-8 dmg, 5% crit\n+30% Bleed RES Piercing When Target Combo\nBleed 4\nSelf: Winded",
           "paths": "Berserker",
           "icon": "icons/skills/hellion_bleed-out.png",
-          "effectUp": "6-9 dmg, 10% crit\n+30% Bleed RES Piercing When Target Combo\nBleed 6\nSelf: Winded"
+          "effectUp": "6-9 dmg, 10% crit\n+30% Bleed RES Piercing When Target Combo\nBleed 6\nSelf: Winded",
+          "pathRanks": {
+            "Berserker": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Bloodlust",
@@ -883,7 +1006,15 @@
           "effect": "3-6 dmg, 5% crit\nSelf: Move Forward 1\nGain on hit: Winded per target hit",
           "paths": "Ravager, Berserker, Carcass",
           "icon": "icons/skills/hellion_breakthrough.png",
-          "effectUp": "4-8 dmg, 10% crit\nApply on CRIT: Combo\nSelf: Move Forward 1\nGain on hit: Winded per target hit"
+          "effectUp": "4-8 dmg, 10% crit\nApply on CRIT: Combo\nSelf: Move Forward 1\nGain on hit: Winded per target hit",
+          "pathRanks": {
+            "Berserker": {
+              "target": "1-2 (lasso)"
+            },
+            "Ravager": {
+              "target": "3-4 (lasso)"
+            }
+          }
         },
         {
           "name": "Raucous Revelry",
@@ -903,7 +1034,12 @@
           "effect": "8-14 dmg, 10% crit\nSelf: Requires self Winded is 3\nIgnores Winded\nCD 2",
           "paths": "Berserker, Ravager, Carcass",
           "icon": "icons/skills/hellion_howling-end.png",
-          "effectUp": "10-18 dmg, 15% crit\nSelf: Requires self Winded is 3\nIgnores Block Winded\nCD 2"
+          "effectUp": "10-18 dmg, 15% crit\nSelf: Requires self Winded is 3\nIgnores Block Winded\nCD 2",
+          "pathRanks": {
+            "Berserker": {
+              "target": "1-4"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -973,7 +1109,15 @@
           "effect": "3-7 dmg, 5% crit\n+1 Burn Dealt when Self has Stealth\nBurn 2\nRandom Adjacent Enemy:\nBurn 3 when Target Combo",
           "paths": "Arsonist: self-Burn + adj Burn on Combo. Survivor: ranks 3-4, +50% CRIT/Stealth. Orphan: ranks 2-4, +Burn1 in Stealth",
           "icon": "icons/skills/runaway_searing-strike.png",
-          "effectUp": "4-9 dmg, 10% crit\n+2 Burn Dealt when Self has Stealth\nBurn 3\nRandom Adjacent Enemy:\nBurn 3 when Target Combo"
+          "effectUp": "4-9 dmg, 10% crit\n+2 Burn Dealt when Self has Stealth\nBurn 3\nRandom Adjacent Enemy:\nBurn 3 when Target Combo",
+          "pathRanks": {
+            "Arsonist": {
+              "ranks": "2-3"
+            },
+            "Orphan": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Firefly",
@@ -993,7 +1137,12 @@
           "effect": "5% crit\nBlind, Combo\nCD 1",
           "paths": "Survivor: ranks 2-4, self Taunt2 + Stealth2 next turn, Blind attacker. Orphan: Blind+Weak, gain Stealth",
           "icon": "icons/skills/runaway_smokescreen.png",
-          "effectUp": "10% crit\nBlind x2, Vulnerable, Combo\nCD 1"
+          "effectUp": "10% crit\nBlind x2, Vulnerable, Combo\nCD 1",
+          "pathRanks": {
+            "Survivor": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Run and Hide",
@@ -1013,7 +1162,12 @@
           "effect": "10% crit\nIgnores Stealth\nRemove Stealth\n-10% Burn RES (3 Turns)\nApply on CRIT: Combo\nCD 1",
           "paths": "Arsonist: enemy Burn transfer + heal. Survivor: requires Stealth, heal per Stealth + Regen, -stress",
           "icon": "icons/skills/runaway_hearthlight.png",
-          "effectUp": "15% crit\nIgnores Stealth Blind\nRemove Stealth\n-10% Burn RES (3 Turns)\nApply on CRIT: Combo\nSelf: Allies:\nRemove Blind, +10% Burn RES Piercing (3 Turns)\nCD 1"
+          "effectUp": "15% crit\nIgnores Stealth Blind\nRemove Stealth\n-10% Burn RES (3 Turns)\nApply on CRIT: Combo\nSelf: Allies:\nRemove Blind, +10% Burn RES Piercing (3 Turns)\nCD 1",
+          "pathRanks": {
+            "Survivor": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Ransack",
@@ -1073,7 +1227,13 @@
           "effect": "5% crit\nRequires Enemy in Front Burn\nIgnores Guarded\nIgnores Block when Stealth\nDeals 75% of remaining Burn on Enemy in Front as DMG\nCD 1",
           "paths": "Arsonist: requires self+target Burn, 50% (75%) of self Burn as DMG, doubles remaining Burn",
           "icon": "icons/skills/runaway_backdraft.png",
-          "effectUp": "10% crit\nRequires Enemy in Front Burn\nIgnores Guarded\nIgnores Block when Stealth\nDeals 100% of remaining Burn on Enemy in Front as DMG\nGain On CRIT: Clear Skill Cooldowns\nCD 1"
+          "effectUp": "10% crit\nRequires Enemy in Front Burn\nIgnores Guarded\nIgnores Block when Stealth\nDeals 100% of remaining Burn on Enemy in Front as DMG\nGain On CRIT: Clear Skill Cooldowns\nCD 1",
+          "pathRanks": {
+            "Arsonist": {
+              "ranks": "2-3",
+              "target": "1-4 (lasso)"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -1178,7 +1338,12 @@
           "effect": "2-4 dmg, 5% crit\nBleed 2\nCombo (25%)",
           "paths": "Soloist: +Next Finale buff (Heal 20-30%, +10% if Bleeding)",
           "icon": "icons/skills/jester_harvest.png",
-          "effectUp": "3-4 dmg, 10% crit\nBleed 3\nCombo (33%)"
+          "effectUp": "3-4 dmg, 10% crit\nBleed 3\nCombo (33%)",
+          "pathRanks": {
+            "Soloist": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Battle Ballad",
@@ -1218,7 +1383,15 @@
           "effect": "Combo\nSelf: Dodge x2, Speed\nMove Forward 3\nCD 1",
           "paths": "Virtuoso: requires Combo + neg token; +Next Encore (remove neg token). Soloist: ranks 1-3, Self, Dodge x2/Taunt x2. Intermezzo: adds Bleed 2",
           "icon": "icons/skills/jester_solo.png",
-          "effectUp": "Combo\nSelf: Dodge+ x2, Speed\nMove Forward 3\nCD 1"
+          "effectUp": "Combo\nSelf: Dodge+ x2, Speed\nMove Forward 3\nCD 1",
+          "pathRanks": {
+            "Soloist": {
+              "ranks": "2-4"
+            },
+            "Virtuoso": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "Echoing March",
@@ -1228,7 +1401,12 @@
           "effect": "5% crit\nPull 1\nDebuff : Turn Start: Pull 1 (3 Turns)\nCD 1",
           "paths": "Virtuoso: Self; Knockback + Next Encore (+Speed). Intermezzo: Bleed 2 + move debuff",
           "icon": "icons/skills/jester_echoing-march.png",
-          "effectUp": "10% crit\nPull 2\nDebuff : Turn Start: Pull 2 (3 Turns)\nCD 1"
+          "effectUp": "10% crit\nPull 2\nDebuff : Turn Start: Pull 2 (3 Turns)\nCD 1",
+          "pathRanks": {
+            "Virtuoso": {
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Encore",
@@ -1238,7 +1416,15 @@
           "effect": "Extra Action\nBleed 2\nSelf: Daze\nWeak\nAllies: 1\nCD 3",
           "paths": "Virtuoso: ranks 1-4, applies all queued Next Encore buffs to each ally, back 2, no extra action. Soloist: ranks 1-4, Self, restores last Finale buffs",
           "icon": "icons/skills/jester_encore.png",
-          "effectUp": "Extra Action\nBleed 2\nSelf: Daze\nAllies: 1\nCD 2"
+          "effectUp": "Extra Action\nBleed 2\nSelf: Daze\nAllies: 1\nCD 2",
+          "pathRanks": {
+            "Soloist": {
+              "ranks": "1-4"
+            },
+            "Virtuoso": {
+              "ranks": "1-4"
+            }
+          }
         },
         {
           "name": "Finale",
@@ -1363,7 +1549,13 @@
           "effect": "3-7 dmg, 5% crit\nKnockback 3\nClear All Corpses",
           "paths": "Monarch: steals all positive tokens, chance scales with Oath",
           "icon": "icons/skills/leper_purge.png",
-          "effectUp": "5-9 dmg, 5% crit\nCombo\nKnockback 3\nClear All Corpses"
+          "effectUp": "5-9 dmg, 5% crit\nCombo\nKnockback 3\nClear All Corpses",
+          "pathRanks": {
+            "Monarch": {
+              "ranks": "1-2",
+              "target": "1-2"
+            }
+          }
         },
         {
           "name": "Intimidate",
@@ -1413,7 +1605,12 @@
           "effect": "Self: -1 Stress\nRemove Blind Weak vulnerable, Combo\nAllies: 1\nCD 1",
           "paths": "Monarch: copies all positive tokens to ally, CD 2 (1)",
           "icon": "icons/skills/leper_reflection.png",
-          "effectUp": "Self: -1 Stress\nRemove Blind Weak vulnerable, Combo\nBuff : +10% Debuff RES (3 Turns) per Token type removed\nAllies: 1\nCD 1"
+          "effectUp": "Self: -1 Stress\nRemove Blind Weak vulnerable, Combo\nBuff : +10% Debuff RES (3 Turns) per Token type removed\nAllies: 1\nCD 1",
+          "pathRanks": {
+            "Monarch": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Ruin",
@@ -1423,7 +1620,12 @@
           "effect": "Self: Requires self has no Ruination\nRuination 2\nBuff When Damaged: Ruination\nWhen Ruin expires, gain Ruin Has Come\nAllies: 1",
           "paths": "Tempest: steals ally's neg tokens. Poet: needs Block/Regen, converts Block→Str, Regen→Crit. Monarch: +Ruin Has Come, adjacent allies +DMG = half Oath",
           "icon": "icons/skills/leper_ruin.png",
-          "effectUp": "Self: Requires self has no Ruination\nRuination 2\nBuff When Damaged: Ruination\nWhen Ruin expires, gain Ruin Has Come+\nAllies: 1"
+          "effectUp": "Self: Requires self has no Ruination\nRuination 2\nBuff When Damaged: Ruination\nWhen Ruin expires, gain Ruin Has Come+\nAllies: 1",
+          "pathRanks": {
+            "Tempest": {
+              "ranks": "1-4"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -1558,7 +1760,12 @@
           "effect": "3-5 dmg, 5% crit\nIgnores Stealth\nSelf: Unchecked Power (50%)\nStealth When Target Combo\nIncrease Unchecked Power chance to 100% when Self Stealth\nIgnores Combo when Self Stealth",
           "paths": "Ritualist: -10% Debuff RES + Stealth x2. Aspirant: forward 1",
           "icon": "icons/skills/occultist_binding-shadows.png",
-          "effectUp": "4-7 dmg, 10% crit\nIgnores Stealth\nSelf: Unchecked Power (66%)\nStealth x2 When Target Combo\nIncrease Unchecked Power chance to 100% when Self Stealth\nIgnores Combo when Self Stealth"
+          "effectUp": "4-7 dmg, 10% crit\nIgnores Stealth\nSelf: Unchecked Power (66%)\nStealth x2 When Target Combo\nIncrease Unchecked Power chance to 100% when Self Stealth\nIgnores Combo when Self Stealth",
+          "pathRanks": {
+            "Ritualist": {
+              "ranks": "1-4"
+            }
+          }
         },
         {
           "name": "Malediction",
@@ -1578,7 +1785,12 @@
           "effect": "3-5 dmg, 5% crit\nRequires Self Unchecked Power Unchecked Power Unchecked Power\nBleed 3, Shuffle",
           "paths": "Warlock: 1-1 base + 3 per positive token, removes them, doubled",
           "icon": "icons/skills/occultist_anamnesis.png",
-          "effectUp": "3-5 dmg, 10% crit\nRequires Self Unchecked Power Unchecked Power\nBleed 4, Shuffle"
+          "effectUp": "3-5 dmg, 10% crit\nRequires Self Unchecked Power Unchecked Power\nBleed 4, Shuffle",
+          "pathRanks": {
+            "Warlock": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "The Burning Stars",
@@ -1588,7 +1800,12 @@
           "effect": "12-18 dmg, 5% crit\nRequires Self Unchecked Power Unchecked Power Unchecked Power",
           "paths": "Warlock: 10-16, doubled. Aspirant: 6-11 + Burn 5-6, copies Burn",
           "icon": "icons/skills/occultist_the-burning-stars.png",
-          "effectUp": "12-18 dmg, 15% crit\nRequires Self Unchecked Power Unchecked Power\nIgnores Block"
+          "effectUp": "12-18 dmg, 15% crit\nRequires Self Unchecked Power Unchecked Power\nIgnores Block",
+          "pathRanks": {
+            "Aspirant": {
+              "ranks": "1-3"
+            }
+          }
         },
         {
           "name": "Chaotic Offering",
@@ -1673,7 +1890,15 @@
           "effect": "2-3 dmg, 5% crit\nSelf: Strength Block",
           "paths": "Confessor: ranks 2-3, hits enemies 1-2, +Weak (up.). Chaplain: ranks 3-4, enemies 1-3, up. gives ally Block",
           "icon": "icons/skills/vestal_hand-of-light.png",
-          "effectUp": "3-4 dmg, 5% crit\nSelf: Strength Block\nRandom Adjacent Ally: Strength"
+          "effectUp": "3-4 dmg, 5% crit\nSelf: Strength Block\nRandom Adjacent Ally: Strength",
+          "pathRanks": {
+            "Chaplain": {
+              "ranks": "1-2"
+            },
+            "Confessor": {
+              "ranks": "2-3"
+            }
+          }
         },
         {
           "name": "Illumination",
@@ -1683,7 +1908,12 @@
           "effect": "5% crit\nIgnore Stealth Dodge\nDaze\nRemove Stealth Dodge",
           "paths": "Confessor: CD 1, ranks 2-3, removes Stealth, strips 2 positive tokens (3 up.)",
           "icon": "icons/skills/vestal_illumination.png",
-          "effectUp": "5% crit\nIgnore Stealth Dodge\nDaze\nRemove Stealth Dodge\nDebuff : Cannot Gain Dodge (2 Rounds)"
+          "effectUp": "5% crit\nIgnore Stealth Dodge\nDaze\nRemove Stealth Dodge\nDebuff : Cannot Gain Dodge (2 Rounds)",
+          "pathRanks": {
+            "Confessor": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "Judgement",
@@ -1733,7 +1963,12 @@
           "effect": "Remove Damage over Time Daze Stun\nAllies: 1\nCD 1",
           "paths": "Chaplain: ranks 3-4",
           "icon": "icons/skills/vestal_ministrations.png",
-          "effectUp": "Remove Damage over Time Daze Stun\n+30% RES per Token type removed\nAllies: 1\nCD 1"
+          "effectUp": "Remove Damage over Time Daze Stun\n+30% RES per Token type removed\nAllies: 1\nCD 1",
+          "pathRanks": {
+            "Chaplain": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Mace Bash",
@@ -1773,7 +2008,12 @@
           "effect": "Requires Target has Consecration\nHeal 10%\nConviction : +10% Healed\nConviction : +10% Healed\nAllies: 1",
           "paths": "Confessor: CD 3, needs neg token, strips 2-3 tokens. Chaplain: self only, CD 2, -2 Stress. Seraph: ranks 2-3 + adjacent, consumes Consecration, heal 30% (50%)",
           "icon": "icons/skills/vestal_mantra.png",
-          "effectUp": "Requires Target has Consecration\nHeal 10%\nConviction : +20% Healed\nConviction : Triggers the effect of any Consecration\nAllies: 1"
+          "effectUp": "Requires Target has Consecration\nHeal 10%\nConviction : +20% Healed\nConviction : Triggers the effect of any Consecration\nAllies: 1",
+          "pathRanks": {
+            "Seraph": {
+              "ranks": "3-4"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -1849,7 +2089,13 @@
           "effect": "3-6 dmg, 5% crit\nBlight 3\nWhen Combo :\n+30% Blight RES Piercing\nSelf: 10% HP DMG",
           "paths": "Maniac: +knockback, Blight→2, +Combo. Exanimate: ranks 3-4, +Blight <50% HP. Combo: +30% Blight RES pierce",
           "icon": "icons/skills/flagellant_punish.png",
-          "effectUp": "4-8 dmg, 10% crit\nBlight 4\nWhen Combo :\n+30% Blight RES Piercing\n+1 Blight Duration Dealt\nSelf: 10% HP DMG"
+          "effectUp": "4-8 dmg, 10% crit\nBlight 4\nWhen Combo :\n+30% Blight RES Piercing\n+1 Blight Duration Dealt\nSelf: 10% HP DMG",
+          "pathRanks": {
+            "Exanimate": {
+              "ranks": "1-2",
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Fester",
@@ -1869,7 +2115,12 @@
           "effect": "Heal 25%\nSelf: 20% HP DMG\nAllies: 1\nCD 1",
           "paths": "Scourge: requires <50% HP, CD 2, 3 uses, heals more",
           "icon": "icons/skills/flagellant_deathless.png",
-          "effectUp": "Heal 35%\nSelf: 20% HP DMG\nAllies: 1\nCD 1"
+          "effectUp": "Heal 35%\nSelf: 20% HP DMG\nAllies: 1\nCD 1",
+          "pathRanks": {
+            "Scourge": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Endure",
@@ -1889,7 +2140,15 @@
           "effect": "Requires Self HP < 50%\nStrength, Block\n+1 Stress\nSelf: Heal 25%\nAllies: 1\nCD 2",
           "paths": "Maniac: steals neg tokens (no HP threshold). Exanimate: <20% HP, heals 10%, +Crit/Dodge. Scourge: Stress 5+, heals by stress",
           "icon": "icons/skills/flagellant_lash-s-gift.png",
-          "effectUp": "Requires Self HP < 50%\nStrength, Block+\n+1 Stress\nRemove Daze, Stun\nSelf: Heal 35%\nAllies: 1\nCD 2"
+          "effectUp": "Requires Self HP < 50%\nStrength, Block+\n+1 Stress\nRemove Daze, Stun\nSelf: Heal 35%\nAllies: 1\nCD 2",
+          "pathRanks": {
+            "Scourge": {
+              "ranks": "1-2"
+            },
+            "Exanimate": {
+              "ranks": "1-4"
+            }
+          }
         },
         {
           "name": "Acid Rain",
@@ -1898,7 +2157,12 @@
           "type": "DoT",
           "effect": "2-3 dmg, 5% crit\nBlight 2\nWhen Combo :\n+30% Blight RES Piercing\nSelf: 10% HP DMG",
           "paths": "Maniac: ranged, +Weak instead of Blight. Exanimate: +dmg <50% HP. Combo: +30% Blight RES pierce",
-          "effectUp": "3-4 dmg, 10% crit\nBlight 3\nWhen Combo :\n+30% Blight RES Piercing\n+1 Blight Dealt\nSelf: 10% HP DMG"
+          "effectUp": "3-4 dmg, 10% crit\nBlight 3\nWhen Combo :\n+30% Blight RES Piercing\n+1 Blight Dealt\nSelf: 10% HP DMG",
+          "pathRanks": {
+            "Maniac": {
+              "ranks": "2-4"
+            }
+          }
         },
         {
           "name": "More! MORE!",
@@ -1928,7 +2192,18 @@
           "effect": "4-8 dmg, 5% crit\nRequires Self HP < 50%\nBlight 4\nWhen Combo :\n+30% Blight RES Piercing\nSelf: Heal 35%\nCD 2, 3 uses",
           "paths": "Maniac: ranks 1-4, CD 3, transfers negatives. Exanimate: needs Blight + <50% HP, converts 100% (133%), heals to 45%. Scourge: needs Blight, no HP req",
           "icon": "icons/skills/flagellant_sepsis.png",
-          "effectUp": "6-10 dmg, 5% crit\nRequires Self HP < 50%\nBlight 6\nWhen Combo :\n+30% Blight RES Piercing\nSelf: Heal 50%\nCD 2, 3 uses"
+          "effectUp": "6-10 dmg, 5% crit\nRequires Self HP < 50%\nBlight 6\nWhen Combo :\n+30% Blight RES Piercing\nSelf: Heal 50%\nCD 2, 3 uses",
+          "pathRanks": {
+            "Scourge": {
+              "target": "1-3"
+            },
+            "Maniac": {
+              "ranks": "1-4"
+            },
+            "Exanimate": {
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Undying",
@@ -2171,7 +2446,13 @@
           "effect": "5-7 dmg, 5% crit\nSelf: Move Back 1 When Defensive Stance\nMove Forward 1 When Aggressive Stance",
           "paths": "Antagoniste: ranks 2-4, Weak (Def) / Vulnerable (Agg)",
           "icon": "icons/skills/duelist_touche.png",
-          "effectUp": "7-9 dmg, 10% crit\nSelf: Move Back 1 When Defensive Stance\nMove Forward 1 When Aggressive Stance\nRank 1 or 2: Gain Defensive Stance If no Stance\nRank 3 or 4: Gain Aggressive Stance If no Stance"
+          "effectUp": "7-9 dmg, 10% crit\nSelf: Move Back 1 When Defensive Stance\nMove Forward 1 When Aggressive Stance\nRank 1 or 2: Gain Defensive Stance If no Stance\nRank 3 or 4: Gain Aggressive Stance If no Stance",
+          "pathRanks": {
+            "Antagoniste": {
+              "ranks": "1-3",
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Feint",
@@ -2231,7 +2512,12 @@
           "effect": "Clear Skills Cooldowns\nSelf: Requires Aggressive Stance\nRemove Stance Tokens\nAllies: 1\nCD 5, 2 uses",
           "paths": "Instructrice: CD 3, +10% dmg per Stress; up. +Stress + extra turn (Def)",
           "icon": "icons/skills/duelist_again.png",
-          "effectUp": "Clear Skills Cooldowns\nSelf: Requires Aggressive Stance or Defensive Stance\nAllies: 1\nCD 5, 2 uses"
+          "effectUp": "Clear Skills Cooldowns\nSelf: Requires Aggressive Stance or Defensive Stance\nAllies: 1\nCD 5, 2 uses",
+          "pathRanks": {
+            "Instructrice": {
+              "ranks": "3-4"
+            }
+          }
         },
         {
           "name": "Flèche",
@@ -2261,7 +2547,16 @@
           "effect": "4 dmg, 5% crit\nRequires Self has Defensive Stance\nIgnores Block, Weak\nExecution 1\nCD 1",
           "paths": "Instructrice: 4-6, Execution 1, clear CDs on kill. Antagoniste: requires Aggressive, Weak x2 + Vulnerable x2. Intrépide: removes stance effects",
           "icon": "icons/skills/duelist_coup-de-grace.png",
-          "effectUp": "6 dmg, 10% crit\nRequires Self has Defensive Stance\nIgnores Block, Weak\nExecution 2\nCD 1"
+          "effectUp": "6 dmg, 10% crit\nRequires Self has Defensive Stance\nIgnores Block, Weak\nExecution 2\nCD 1",
+          "pathRanks": {
+            "Antagoniste": {
+              "target": "2-4"
+            },
+            "Instructrice": {
+              "ranks": "3-4",
+              "target": "2-4"
+            }
+          }
         },
         {
           "name": "Ruthless Instruction",
@@ -2271,7 +2566,12 @@
           "effect": "Requires Self has Defensive Stance\nDodge x2\nAllies: 1\nCD 1",
           "paths": "Instructrice: +Strength + Stress interactions",
           "icon": "icons/skills/duelist_ruthless-instruction.png",
-          "effectUp": "Requires Self has Defensive Stance or Aggressive Stance\nDodge x2 when Defensive Stance\nBuff Skills Ignore Blind (3 Turns) when Aggressive Stance\nAllies: 1\nCD 1"
+          "effectUp": "Requires Self has Defensive Stance or Aggressive Stance\nDodge x2 when Defensive Stance\nBuff Skills Ignore Blind (3 Turns) when Aggressive Stance\nAllies: 1\nCD 1",
+          "pathRanks": {
+            "Instructrice": {
+              "ranks": "3-4"
+            }
+          }
         },
         {
           "name": "Riposte (auto)",
@@ -2374,7 +2674,13 @@
           "effect": "1-2 dmg, 5% crit\nBurn 2\nCombo (25%)",
           "paths": "Banneret: ranks 3-4, targets 3-4 (back cleave)",
           "icon": "icons/skills/crusader_zealous-accusation.png",
-          "effectUp": "2-3 dmg, 5% crit\nBurn 3\nCombo (33%)"
+          "effectUp": "2-3 dmg, 5% crit\nBurn 3\nCombo (33%)",
+          "pathRanks": {
+            "Banneret": {
+              "ranks": "3-4",
+              "target": "3-4 (lasso)"
+            }
+          }
         },
         {
           "name": "Inspiring Cry",
@@ -2394,7 +2700,12 @@
           "effect": "Remove Blind Weak Vulnerable\nAllies: 1\nCD 1",
           "paths": "Templar: Guarded + Healing Received, transfers Regen to low-HP ally. Banneret: team-wide Immobilize",
           "icon": "icons/skills/crusader_rallying-cry.png",
-          "effectUp": "Remove Blind Weak Vulnerable\nSelf: Remove Blind Weak Vulnerable\nAllies: 1\nCD 0"
+          "effectUp": "Remove Blind Weak Vulnerable\nSelf: Remove Blind Weak Vulnerable\nAllies: 1\nCD 0",
+          "pathRanks": {
+            "Templar": {
+              "ranks": "1-2"
+            }
+          }
         },
         {
           "name": "Reap",
@@ -2414,7 +2725,12 @@
           "effect": "Requires HP < 50%\nHeal 20%\nAllies: 1\nCD 2, 3 uses",
           "paths": "Banneret: all allies, extra uses, up to 30%",
           "icon": "icons/skills/crusader_battle-heal.png",
-          "effectUp": "Requires HP < 50%\nHeal 25%\nSelf: Heal 10%\nAllies: 1\nCD 1, 3 uses"
+          "effectUp": "Requires HP < 50%\nHeal 25%\nSelf: Heal 10%\nAllies: 1\nCD 1, 3 uses",
+          "pathRanks": {
+            "Banneret": {
+              "ranks": "1-4"
+            }
+          }
         },
         {
           "name": "Bulwark of Faith",
@@ -2454,7 +2770,12 @@
           "effect": "Block x2\nAllies: 1\nCD 2",
           "paths": "Aggressor: lifesteal vs Burn, +Debuff RES, CD 4. Templar: Block + 30-50% Healing Received, CD 2. Banneret: team-wide Block, removes Stun/Daze, CD 3→2",
           "icon": "icons/skills/crusader_tenacity.png",
-          "effectUp": "Block x2\nBuff +10% Debuff RES\nSelf: Block\nBuff +10% Debuff RES\nAllies: 1\nCD 2"
+          "effectUp": "Block x2\nBuff +10% Debuff RES\nSelf: Block\nBuff +10% Debuff RES\nAllies: 1\nCD 2",
+          "pathRanks": {
+            "Templar": {
+              "ranks": "1-2"
+            }
+          }
         }
       ],
       "trinkets": [
@@ -2529,7 +2850,13 @@
           "effect": "3-4 dmg, 5% crit\nPull 1\nCombo\nRemove Crit",
           "paths": "Unchained: retargets 1-2, self fwd, -10% Stun-res",
           "icon": "icons/skills/abomination_manacles-human.png",
-          "effectUp": "4-6 dmg, 10% crit\nPull 2\nCombo\nRemove Strength Crit"
+          "effectUp": "4-6 dmg, 10% crit\nPull 2\nCombo\nRemove Strength Crit",
+          "pathRanks": {
+            "Unchained": {
+              "ranks": "3-4",
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Backlash (Human)",
@@ -2539,7 +2866,13 @@
           "effect": "3-5 dmg, 5% crit\nKnockback 1\nSelf: Block",
           "paths": "Unchained: retargets fwd, +dmg vs Blight, stress-heal on Combo",
           "icon": "icons/skills/abomination_backlash-human.png",
-          "effectUp": "4-6 dmg, 10% crit\nKnockback 2\nStun when Combo\nSelf: Block"
+          "effectUp": "4-6 dmg, 10% crit\nKnockback 2\nStun when Combo\nSelf: Block",
+          "pathRanks": {
+            "Unchained": {
+              "ranks": "1-3",
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Beast Bile (Human)",
@@ -2549,7 +2882,13 @@
           "effect": "5% crit\nBlight 3\nApply on CRIT: Increase to Blight 4 (4 turns)\nClear Corpse",
           "paths": "Unchained: CD 2 (1), self-stress, -10% DoT-res",
           "icon": "icons/skills/abomination_beast-bile-human.png",
-          "effectUp": "10% crit\nBlight 4\nApply on CRIT: Increase to Blight 5 (4 turns)\nEnemy Team: Clear Corpse"
+          "effectUp": "10% crit\nBlight 4\nApply on CRIT: Increase to Blight 5 (4 turns)\nEnemy Team: Clear Corpse",
+          "pathRanks": {
+            "Unchained": {
+              "ranks": "3-4",
+              "target": "1-4 (lasso)"
+            }
+          }
         },
         {
           "name": "Ichor (Human)",
@@ -2599,7 +2938,15 @@
           "effect": "5-7 dmg, 10% crit\n-2 DMG when Target Block\n+2 DMG when Target Vulnerable\nSelf: +1 Stress",
           "paths": "Fiend: up. Execute vs Bleeding. Moribund: needs stress ≥2, +crit/stress, Taunt on crit",
           "icon": "icons/skills/abomination_rage-beast.png",
-          "effectUp": "6-8 dmg, 15% crit\n-2 DMG when Target Block\n+4 DMG when Target Vulnerable\nSelf: +1 Stress"
+          "effectUp": "6-8 dmg, 15% crit\n-2 DMG when Target Block\n+4 DMG when Target Vulnerable\nSelf: +1 Stress",
+          "pathRanks": {
+            "Fiend": {
+              "target": "1-2"
+            },
+            "Moribund": {
+              "target": "1-2"
+            }
+          }
         },
         {
           "name": "Maul (Beast)",
@@ -2609,7 +2956,12 @@
           "effect": "4-5 dmg, 5% crit\nIgnores Block\n+2 DMG when Target Block\nSelf: +1 Stress",
           "paths": "Fiend: Bleed 4 (6), +2 stress. Moribund: needs stress ≥2, Weak, instant-kill 1-2%/stress (not bosses), up. +Vulnerable",
           "icon": "icons/skills/abomination_maul-beast.png",
-          "effectUp": "5-7 dmg, 10% crit\nIgnores Block\n+4 DMG when Target Block\nSelf: +1 Stress"
+          "effectUp": "5-7 dmg, 10% crit\nIgnores Block\n+4 DMG when Target Block\nSelf: +1 Stress",
+          "pathRanks": {
+            "Moribund": {
+              "target": "1-3"
+            }
+          }
         },
         {
           "name": "Slam (Beast)",
@@ -2629,7 +2981,15 @@
           "effect": "10% crit\nPull 1\nVulnerable x2\nRemove Riposte\nApply on CRIT: Daze\nSelf: +1 Stress\nCD 2",
           "paths": "Unchained: needs Blight, crit Combo. Fiend: needs Bleed, shuffle, CD 3→2, stress-heal. Moribund: all 4 ranks, steals positive tokens, CD 3→2, +4 stress",
           "icon": "icons/skills/abomination_instinct-beast.png",
-          "effectUp": "2-3 dmg, 10% crit\nIgnores Riposte\nPull 2\nVulnerable x2\nRemove Riposte\nApply on CRIT: Stun\nSelf: +1 Stress\nCD 2"
+          "effectUp": "2-3 dmg, 10% crit\nIgnores Riposte\nPull 2\nVulnerable x2\nRemove Riposte\nApply on CRIT: Stun\nSelf: +1 Stress\nCD 2",
+          "pathRanks": {
+            "Unchained": {
+              "ranks": "2-4"
+            },
+            "Moribund": {
+              "ranks": "1-4"
+            }
+          }
         }
       ],
       "trinkets": [

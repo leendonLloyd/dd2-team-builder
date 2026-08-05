@@ -428,7 +428,10 @@ function parseRanks(str){
   while((m=sr.exec(rest))) pos.add(+m[0]);
   return pos;
 }
-function usableAt(skill, rank){ const p=parseRanks(skill.ranks); return p.size===0 || p.has(rank); } // no digits = any rank / passive
+// path-aware effective ranks/target (some paths change where a skill is usable / what it hits)
+function effRanks(s,path){ return (path && s.pathRanks && s.pathRanks[path] && s.pathRanks[path].ranks) || s.ranks; }
+function effTarget(s,path){ return (path && s.pathRanks && s.pathRanks[path] && s.pathRanks[path].target) || s.target; }
+function usableAt(skill, rank, path){ const p=parseRanks(effRanks(skill,path)); return p.size===0 || p.has(rank); } // no digits = any rank / passive
 function highlight(text,term){ const t=esc(text); if(!term) return t; const re=new RegExp("("+term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"); return t.replace(re,'<span class="hl">$1</span>'); }
 function heroMatches(h,term){ if(!term) return true; const hay=[h.name,h.role,(h.tags||[]).join(" "),h.skills.map(s=>s.name+" "+s.effect).join(" "),h.trinkets.map(t=>t.name).join(" "),h.paths.map(p=>p.name).join(" ")].join(" ").toLowerCase(); return hay.includes(term.toLowerCase()); }
 
@@ -452,8 +455,8 @@ const DESC=[
   ["adjacent","adjacent","Hits adjacent targets together."],
 ];
 // all target descriptors for a skill (nature labels + keyword chips) — shown as chips under the icon
-function descTagsFor(s){
-  const src=((s.ranks||"")+" "+(s.target||"")).toLowerCase();
+function descTagsFor(s, path){
+  const src=((effRanks(s,path)||"")+" "+(effTarget(s,path)||"")).toLowerCase();
   const out=[]; const seen=new Set();
   const push=(lab,tip)=>{ const k=lab.toLowerCase(); if(seen.has(k))return; seen.add(k); out.push(`<span class="rankchip" data-tip="${esc(tip)}" title="${esc(tip)}">${esc(lab)}</span>`); };
   for(const [k,lab,tip] of DESC){ if(src.includes(k)) push(lab,tip); }
@@ -566,17 +569,18 @@ function highlightPath(text,pathName){ let t=esc(text); if(pathName){ const re=n
 /* compendium skill card: base + upgraded effects + all path changes (active path highlighted) */
 function compSkillCardHtml(s, ap, isDef){
   const tk=typeKey(s.type);
-  const chips=descTagsFor(s);
+  const path = (ap && !isDef) ? ap.name : null;
+  const chips=descTagsFor(s,path);
   const head=`<div class="skic">${skillIconHtml(s)}<span class="tlabel t-${esc(tk)}">${esc(typeShort(s.type))}</span>${chips?`<div class="skic-chips">${chips}</div>`:""}</div>`;
   let eff=`<div class="skeff">${effectHtml(s.effect||"")}</div>`;
   if(s.effectUp) eff+=`<div class="skeff is-up"><span class="sub-lbl">Upgraded ⬆</span>${effectHtml(s.effectUp)}</div>`;
   const pm=(s.paths && s.paths!=="—")
-    ? `<div class="skpaths"><span class="sub-lbl">Path changes</span> ${highlightPath(s.paths, isDef?null:(ap&&ap.name))}</div>` : "";
+    ? `<div class="skpaths"><span class="sub-lbl">Path changes</span> ${highlightPath(s.paths, path)}</div>` : "";
   return `<div class="sk comp" data-skill="${esc(s.name)}">
     ${head}
     <div class="skbody">
       <div class="skrow1"><span class="sknm">${esc(s.name)}</span></div>
-      <div class="skmeta">${renderRanks(s.ranks,"hero",true)}${renderRanks(s.target,"target",true)}</div>
+      <div class="skmeta">${renderRanks(effRanks(s,path),"hero",true)}${renderRanks(effTarget(s,path),"target",true)}</div>
       ${eff}${pm}
     </div></div>`;
 }
@@ -714,20 +718,21 @@ function setupFormationDrag(){
 
 /* one skill card (shared by the main equipped list and the picker modal) */
 function skillCardHtml(s, rank, equipped, ap, isDef, extraClass, showUp){
-  const ok = rank==null ? true : usableAt(s,rank);
+  const path = ap ? ap.name : null;
+  const ok = rank==null ? true : usableAt(s,rank,path);
   const mod=!isDef && s.paths && s.paths!=="—" && new RegExp("\\b"+ap.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i").test(s.paths);
   const modText=mod?`<div class="skpath">↳ ${esc(ap.name)}: ${tokenizeEffect(pathModExtract(s.paths,ap.name))}</div>`:"";
   const up = showUp && s.effectUp;
   const effText = up ? s.effectUp : (s.effect||"");
   const upTag = s.effectUp ? `<span class="up-tag ${up?"on":""}" title="${up?"Showing upgraded (mastered) effect":"Has an upgraded (mastered) version"}">▲</span>` : "";
   const tk=typeKey(s.type);
-  const chips=descTagsFor(s);
+  const chips=descTagsFor(s,path);
   return `<div class="sk ${(rank!=null&&!ok)?"unusable":""} ${equipped?"equipped":""} ${extraClass||""}" data-skill="${esc(s.name)}">
       <div class="skic">${skillIconHtml(s)}<span class="tlabel t-${esc(tk)}">${esc(typeShort(s.type))}</span>${chips?`<div class="skic-chips">${chips}</div>`:""}</div>
       <div class="skbody">
         <div class="skrow1"><span class="sknm">${esc(s.name)}</span>${upTag}
           ${rank!=null?`<span class="use-badge ${ok?"ok":"no"}">${ok?"usable @"+rank:"not @"+rank}</span>`:""}</div>
-        <div class="skmeta">${renderRanks(s.ranks,"hero",true)}${renderRanks(s.target,"target",true)}</div>
+        <div class="skmeta">${renderRanks(effRanks(s,path),"hero",true)}${renderRanks(effTarget(s,path),"target",true)}</div>
         <div class="skeff ${up?"is-up":""}">${effectHtml(effText)}</div>${modText}
       </div></div>`;
 }
@@ -767,7 +772,7 @@ function renderSkillModal(){
   const t=team[i]; const rank=i+1; const h=heroBy(t.hero);
   const ap=h.paths.find(p=>p.name===t.path)||h.paths[0]; const isDef=ap.default;
   const load=(t.loadout||[]).length;
-  const rows=h.skills.slice().sort((a,b)=>usableAt(b,rank)-usableAt(a,rank)).map(s=>{
+  const rows=h.skills.slice().sort((a,b)=>usableAt(b,rank,t.path)-usableAt(a,rank,t.path)).map(s=>{
     const equipped=(t.loadout||[]).includes(s.name);
     const cap = !equipped && load>=5;
     return skillCardHtml(s, rank, equipped, ap, isDef, cap?"cap":"", t.showUp);
