@@ -294,7 +294,11 @@
     <h1>⚔ Darkest Dungeon II</h1>
     <div class="hdr-actions">
       <span id="hdrTeam" class="hdr-team">
-        <button class="hdr-btn" id="tbSample" title="Load sample team">✨ Sample</button>
+        <select class="hdr-btn" id="tbSample" title="Load a sample team">
+          <option value="" selected>✨ Sample ▾</option>
+          <option value="grandslam">Grand Slam · MAA/HWM/Jester/PD</option>
+          <option value="dot">DoT · Flag/Cru/Run/PD</option>
+        </select>
         <button class="hdr-btn warn" id="tbClear" title="Clear team">Clear</button>
       </span>
       <button class="theme-toggle" id="themeToggle">☾ Theme</button>
@@ -593,15 +597,26 @@ function loadTeam(){
   try{ const t=JSON.parse(localStorage.getItem("dd2team")); if(Array.isArray(t)&&t.length===4) team=t; }catch(e){}
 }
 $("tbClear").onclick=()=>{ team=[null,null,null,null]; saveTeam(); renderBuilder(); };
-$("tbSample").onclick=()=>{
-  team=[
+const PRESETS={
+  grandslam:{team:[
+    {hero:"Man-at-Arms",path:"Bulwark",loadout:["Defender","Bolster","Rampart","Crush","Stand Fast"]},
+    {hero:"Highwayman",path:"Wanderer",loadout:["Wicked Slice","Pistol Shot","Grapeshot Blast","Open Vein","Highway Robbery"]},
+    {hero:"Jester",path:"Virtuoso",loadout:["Razor's Wit","Inspiring Tune","Battle Ballad","Play Out","Encore"]},
+    {hero:"Plague Doctor",path:"Physician",loadout:["Battlefield Medicine","Ounce of Prevention","Blinding Gas","Disorienting Blast","Emboldening Vapours"]},
+  ]},
+  dot:{team:[
     {hero:"Flagellant",path:"Scourge"},
     {hero:"Crusader",path:"Templar"},
     {hero:"Runaway",path:"Arsonist"},
-    {hero:"Plague Doctor",path:"Alchemist"}
-  ].map((t,i)=>({...t, loadout:defaultLoadout(heroBy(t.hero), i+1)}));
-  saveTeam(); renderBuilder();
+    {hero:"Plague Doctor",path:"Alchemist"},
+  ]},
 };
+function loadPreset(key){
+  const pr=PRESETS[key]; if(!pr) return;
+  team=pr.team.map((t,i)=>({hero:t.hero, path:t.path, loadout:(t.loadout&&t.loadout.slice())||defaultLoadout(heroBy(t.hero), i+1)}));
+  state.tbSelected=0; saveTeam(); renderBuilder();
+}
+$("tbSample").onchange=e=>{ if(e.target.value){ loadPreset(e.target.value); e.target.value=""; } };
 
 function firstFilled(){ return team.findIndex(Boolean); }
 function defaultLoadout(h, rank){   // first 5 usable-at-rank skills (then fill with the rest to reach 5)
