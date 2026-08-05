@@ -48,17 +48,25 @@
   .tab:hover { color:var(--text); }
   .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
 
-  .controls { padding:14px 24px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; border-bottom:1px solid var(--border); background:var(--bg-panel); position:sticky; top:0; z-index:20; }
+  .controls { padding:14px 24px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; border-bottom:1px solid var(--border); background:var(--bg-panel); }
   #search { flex:1; min-width:220px; padding:9px 14px; border-radius:8px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:.95rem; }
   #search:focus { outline:none; border-color:var(--accent); }
   .chips { display:flex; gap:6px; flex-wrap:wrap; }
+  .filter-panel { flex-basis:100%; width:100%; display:none; flex-direction:column; gap:10px; margin-top:2px; }
+  .filter-panel.open { display:flex; }
   .chip { cursor:pointer; padding:6px 12px; border-radius:16px; font-size:.78rem; border:1px solid var(--border); background:var(--bg); color:var(--text-dim); white-space:nowrap; user-select:none; }
   .chip:hover { background:var(--bg-hover); color:var(--text); }
   .chip.active { background:var(--accent); border-color:var(--accent); color:#1a1510; font-weight:600; }
 
-  .layout { display:grid; grid-template-columns:300px 1fr; min-height:calc(100vh - 190px); }
-  @media (max-width:820px){ .layout{ grid-template-columns:1fr; } .sidebar{ max-height:260px; } }
-  .sidebar { border-right:1px solid var(--border); overflow-y:auto; background:var(--bg-panel); }
+  .layout { display:grid; grid-template-columns:300px 1fr; align-items:start; min-height:calc(100vh - 190px); }
+  .sidebar { position:sticky; top:0; align-self:start; max-height:100vh; border-right:1px solid var(--border); overflow-y:auto; background:var(--bg-panel); }
+  @media (max-width:820px){
+    .layout{ grid-template-columns:60px 1fr; }                 /* keep it a left sidebar (icon rail) on mobile */
+    .sidebar .hero-item{ padding:8px 0; justify-content:center; }
+    .sidebar .hero-item .txt{ display:none; }
+    .sidebar .hero-item.active{ border-left:3px solid var(--accent); }
+    .sidebar .avatar{ width:42px; height:42px; }
+  }
   .hero-item { padding:9px 16px; cursor:pointer; border-bottom:1px solid var(--border); display:flex; gap:11px; align-items:center; }
   .hero-item:hover { background:var(--bg-hover); }
   .hero-item.active { background:var(--bg-panel-2); border-left:3px solid var(--accent); padding-left:13px; }
@@ -191,7 +199,11 @@
   /* per-hero blocks stacked: header row + horizontal strip of detailed skill cards */
   .tb-detail { display:flex; flex-direction:column; gap:9px; }
   .tb-hero-block { border:1px solid var(--border); border-radius:11px; padding:9px 10px; background:var(--bg-panel); }
-  .tbd-head { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+  .tbd-head { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+  .tbd-id { display:flex; gap:9px; align-items:center; min-width:0; flex:1; cursor:pointer; border-radius:9px; padding:2px; }
+  .tbd-id:hover { background:color-mix(in srgb, var(--bad) 14%, transparent); }
+  .tbd-id:hover .tbd-name { color:var(--bad); }
+  .tbd-id:hover::after { content:"✕ remove"; font-size:.6rem; font-weight:700; color:var(--bad); white-space:nowrap; }
   .tbd-meta { flex:1; min-width:0; }
   .tb-empty { color:var(--text-faint); font-size:.85rem; padding:20px 4px; text-align:center; }
   .tbd-skills { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scroll-snap-type:x proximity; }
@@ -241,6 +253,19 @@
   .up-tag { font-size:.7rem; color:var(--text-faint); cursor:default; }
   .up-tag.on { color:var(--accent); }
   .skeff.is-up { border-left:2px solid var(--accent); padding-left:7px; }
+  /* compendium skills as full-width card rows (roomy effect column) */
+  .comp-skills { display:flex; flex-direction:column; }
+  .comp-skills .sk { align-items:flex-start; gap:12px; padding:13px 2px; border-bottom:1px solid var(--border); border-radius:0; cursor:default; }
+  .comp-skills .sk:hover { background:transparent; }
+  .comp-skills .up-tag { display:none; }
+  .comp-skills .skic { width:50px; }
+  .comp-skills .skill-ic, .comp-skills .glyph { width:50px; height:50px; border-radius:10px; }
+  .comp-skills .sknm { font-size:.95rem; }
+  .comp-skills .skeff { font-size:.82rem; }
+  .comp-skills .skeff + .skeff { margin-top:8px; }
+  .sub-lbl { display:block; font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--text-faint); margin-bottom:2px; }
+  .skeff.is-up .sub-lbl { color:var(--accent); }
+  .skpaths { font-size:.78rem; color:var(--text-dim); line-height:1.5; margin-top:9px; border-top:1px dashed var(--border); padding-top:8px; }
   .sk.static { cursor:pointer; }
   .sk.static::before { content:none; }   /* no star clutter in main view — everything there is equipped */
 
@@ -252,6 +277,9 @@
   .modal { background:var(--bg-panel); border:1px solid var(--border); border-radius:16px 16px 0 0; width:100%; max-width:640px; max-height:88vh; overflow-y:auto; box-shadow:var(--shadow); }
   @media (min-width:600px){ .modal-bg { align-items:center; padding:20px; } .modal { border-radius:16px; } }
   .modal-hd { position:sticky; top:0; background:var(--bg-panel); border-bottom:1px solid var(--border); padding:13px 16px; display:flex; align-items:flex-start; gap:10px; z-index:2; }
+  .mh-title { flex:1; min-width:0; }
+  .mh-controls { display:flex; gap:8px; align-items:center; padding:10px 16px; border-bottom:1px solid var(--border); }
+  .mh-path { flex:1; min-width:0; padding:6px 8px; border-radius:7px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:.85rem; }
   .modal-hd .mt { font-weight:700; color:var(--accent); font-size:1rem; }
   .modal-hd .mc { margin-top:2px; }
   .modal-close { margin-left:auto; cursor:pointer; color:var(--text-dim); font-size:1.25rem; line-height:1; padding:2px 8px; border-radius:6px; }
@@ -283,8 +311,11 @@
 <div id="view-compendium" style="display:none">
   <div class="controls">
     <input id="search" type="text" placeholder="Search heroes, skills, trinkets…" autocomplete="off">
-    <div class="chips" id="dlcFilters"></div>
-    <div class="chips" id="tagFilters"></div>
+    <button class="hdr-btn" id="filterToggle">☰ Filters</button>
+    <div class="filter-panel" id="filterPanel">
+      <div class="chips" id="dlcFilters"></div>
+      <div class="chips" id="tagFilters"></div>
+    </div>
   </div>
   <div class="count" id="count"></div>
   <div class="layout">
@@ -381,7 +412,15 @@ function effectHtml(text){
 }
 function heroBy(n){ return state.data.heroes.find(h=>h.name===n); }
 function defaultPath(h){ const d=h.paths.find(p=>p.default); return d?d.name:h.paths[0].name; }
+function updateFilterBtn(){
+  const n=(state.dlc!=="All"?1:0)+(state.tag!=="All"?1:0);
+  const btn=$("filterToggle"); if(!btn) return;
+  btn.classList.toggle("on", n>0);
+  btn.textContent = n>0 ? `☰ Filters (${n})` : "☰ Filters";
+}
 function typeKey(t){ return (t||"").split("/")[0]; }
+const TYPE_SHORT={Damage:"DMG",DoT:"DOT",Heal:"HEAL",Buff:"BUFF",Debuff:"DEB",Support:"SUP",Control:"CTRL"};
+function typeShort(t){ const k=typeKey(t); return TYPE_SHORT[k]||k.toUpperCase(); }
 function parseRanks(str){
   const s=String(str||""); const pos=new Set(); const re=/([1-4])\s*-\s*([1-4])/g; let m;
   while((m=re.exec(s))){ let a=+m[1],b=+m[2]; if(a>b)[a,b]=[b,a]; for(let i=a;i<=b;i++)pos.add(i); }
@@ -454,10 +493,12 @@ function renderRanks(str, kind, bare){
 function init(){
   const dlcs=["All",...new Set(state.data.heroes.map(h=>h.dlc))];
   $("dlcFilters").innerHTML=dlcs.map(d=>`<span class="chip ${d==="All"?"active":""}" data-dlc="${esc(d)}">${esc(d)}</span>`).join("");
-  $("dlcFilters").querySelectorAll(".chip").forEach(c=>c.onclick=()=>{ state.dlc=c.dataset.dlc; $("dlcFilters").querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===c)); renderList(); });
+  $("dlcFilters").querySelectorAll(".chip").forEach(c=>c.onclick=()=>{ state.dlc=c.dataset.dlc; $("dlcFilters").querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===c)); renderList(); updateFilterBtn(); });
   const tags=["All",...[...new Set(state.data.heroes.flatMap(h=>h.tags||[]))].sort()];
   $("tagFilters").innerHTML=tags.map(t=>`<span class="chip ${t==="All"?"active":""}" data-tag="${esc(t)}">${esc(t)}</span>`).join("");
-  $("tagFilters").querySelectorAll(".chip").forEach(c=>c.onclick=()=>{ state.tag=c.dataset.tag; $("tagFilters").querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===c)); renderList(); });
+  $("tagFilters").querySelectorAll(".chip").forEach(c=>c.onclick=()=>{ state.tag=c.dataset.tag; $("tagFilters").querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===c)); renderList(); updateFilterBtn(); });
+  $("filterToggle").onclick=()=>$("filterPanel").classList.toggle("open");
+  updateFilterBtn();
   $("search").oninput=e=>{ state.search=e.target.value.trim(); renderList(); if(state.hero) renderDetail(); };
 
   const lg=state.data.legend;
@@ -505,19 +546,7 @@ function renderDetail(){
   const pathTabs=`<div class="path-tabs">${h.paths.map(p=>`<span class="path-tab ${p.name===activePath?"active":""} ${p.default?"default-path":""}" data-path="${esc(p.name)}">${esc(p.name)}${p.default?" ★":""}</span>`).join("")}</div>`;
   const pathDesc=`<div class="path-desc"><b>${esc(ap.name)}${ap.default?" (default)":""}.</b> ${esc(ap.desc)}</div>`;
 
-  const rows=h.skills.map(s=>{
-    const mod=!isDef && s.paths && s.paths!=="—" && new RegExp("\\b"+ap.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i").test(s.paths);
-    const hit=term && (s.name.toLowerCase().includes(term.toLowerCase())||(s.effect||"").toLowerCase().includes(term.toLowerCase()));
-    const dim=term && !hit;
-    return `<tr class="${mod?"mod-hit":""} ${dim?"dim":""}">
-      <td><div class="skill-name-cell">${skillIconHtml(s)}<span class="skill-name">${highlight(s.name,term)}</span></div></td>
-      <td>${renderRanks(s.ranks,"hero")}</td>
-      <td>${renderRanks(s.target,"target")}</td>
-      <td><span class="type-badge t-${esc(typeKey(s.type))}">${esc(s.type)}</span></td>
-      <td class="eff-cell">${highlight(s.effect||"",term)}</td>
-      <td class="path-cell ${(!s.paths||s.paths==="—")?"none":""}">${s.paths&&s.paths!=="—"?highlightPath(s.paths,isDef?null:ap.name):"—"}</td>
-    </tr>`;
-  }).join("");
+  const cards=h.skills.map(s=>compSkillCardHtml(s,ap,isDef)).join("");
 
   $("detail").innerHTML=`
     <div class="detail-head">${portraitHtml(h,"lg")}
@@ -527,13 +556,30 @@ function renderDetail(){
     <div class="section-title">Stats</div>${stats}${mech}
     <div class="section-title">Paths <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint)">— click to see what each rewrites</span></div>
     ${pathTabs}${pathDesc}
-    <div class="section-title">Skills <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint)">— highlighted rows are modified by <b style="color:var(--accent)">${esc(ap.name)}</b></span></div>
-    <div style="overflow-x:auto"><table class="skills"><thead><tr><th>Skill</th><th>Usable Ranks</th><th>Target</th><th>Type</th><th>Effect / Tokens</th><th>Path Modifications</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="section-title">Skills <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint)">— <b style="color:var(--accent)">${esc(ap.name)}</b> changes shown under each modified skill</span></div>
+    <div class="comp-skills">${cards}</div>
     <div class="section-title">Signature / Special Trinkets</div>
     ${h.trinkets.map(t=>`<div class="trinket"><div class="tn">${highlight(t.name,term)}</div><div class="te">${highlight(t.effect,term)}</div></div>`).join("")}`;
   $("detail").querySelectorAll(".path-tab").forEach(el=>el.onclick=()=>{ state.path=el.dataset.path; renderDetail(); });
 }
 function highlightPath(text,pathName){ let t=esc(text); if(pathName){ const re=new RegExp("("+pathName.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"[^.]*\\.?)","i"); t=t.replace(re,'<span class="hl">$1</span>'); } return t; }
+/* compendium skill card: base + upgraded effects + all path changes (active path highlighted) */
+function compSkillCardHtml(s, ap, isDef){
+  const tk=typeKey(s.type);
+  const chips=descTagsFor(s);
+  const head=`<div class="skic">${skillIconHtml(s)}<span class="tlabel t-${esc(tk)}">${esc(typeShort(s.type))}</span>${chips?`<div class="skic-chips">${chips}</div>`:""}</div>`;
+  let eff=`<div class="skeff">${effectHtml(s.effect||"")}</div>`;
+  if(s.effectUp) eff+=`<div class="skeff is-up"><span class="sub-lbl">Upgraded ⬆</span>${effectHtml(s.effectUp)}</div>`;
+  const pm=(s.paths && s.paths!=="—")
+    ? `<div class="skpaths"><span class="sub-lbl">Path changes</span> ${highlightPath(s.paths, isDef?null:(ap&&ap.name))}</div>` : "";
+  return `<div class="sk comp" data-skill="${esc(s.name)}">
+    ${head}
+    <div class="skbody">
+      <div class="skrow1"><span class="sknm">${esc(s.name)}</span></div>
+      <div class="skmeta">${renderRanks(s.ranks,"hero",true)}${renderRanks(s.target,"target",true)}</div>
+      ${eff}${pm}
+    </div></div>`;
+}
 
 /* ================= TEAM BUILDER ================= */
 let team = [null,null,null,null]; // each: {hero, path, loadout:[skillName,...]}
@@ -668,7 +714,7 @@ function setupFormationDrag(){
 
 /* one skill card (shared by the main equipped list and the picker modal) */
 function skillCardHtml(s, rank, equipped, ap, isDef, extraClass, showUp){
-  const ok=usableAt(s,rank);
+  const ok = rank==null ? true : usableAt(s,rank);
   const mod=!isDef && s.paths && s.paths!=="—" && new RegExp("\\b"+ap.name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i").test(s.paths);
   const modText=mod?`<div class="skpath">↳ ${esc(ap.name)}: ${tokenizeEffect(pathModExtract(s.paths,ap.name))}</div>`:"";
   const up = showUp && s.effectUp;
@@ -676,11 +722,11 @@ function skillCardHtml(s, rank, equipped, ap, isDef, extraClass, showUp){
   const upTag = s.effectUp ? `<span class="up-tag ${up?"on":""}" title="${up?"Showing upgraded (mastered) effect":"Has an upgraded (mastered) version"}">▲</span>` : "";
   const tk=typeKey(s.type);
   const chips=descTagsFor(s);
-  return `<div class="sk ${ok?"":"unusable"} ${equipped?"equipped":""} ${extraClass||""}" data-skill="${esc(s.name)}">
-      <div class="skic">${skillIconHtml(s)}<span class="tlabel t-${esc(tk)}">${esc(tk)}</span>${chips?`<div class="skic-chips">${chips}</div>`:""}</div>
+  return `<div class="sk ${(rank!=null&&!ok)?"unusable":""} ${equipped?"equipped":""} ${extraClass||""}" data-skill="${esc(s.name)}">
+      <div class="skic">${skillIconHtml(s)}<span class="tlabel t-${esc(tk)}">${esc(typeShort(s.type))}</span>${chips?`<div class="skic-chips">${chips}</div>`:""}</div>
       <div class="skbody">
         <div class="skrow1"><span class="sknm">${esc(s.name)}</span>${upTag}
-          <span class="use-badge ${ok?"ok":"no"}">${ok?"usable @"+rank:"not @"+rank}</span></div>
+          ${rank!=null?`<span class="use-badge ${ok?"ok":"no"}">${ok?"usable @"+rank:"not @"+rank}</span>`:""}</div>
         <div class="skmeta">${renderRanks(s.ranks,"hero",true)}${renderRanks(s.target,"target",true)}</div>
         <div class="skeff ${up?"is-up":""}">${effectHtml(effText)}</div>${modText}
       </div></div>`;
@@ -691,14 +737,11 @@ function heroBlockHtml(t,i){
   const rank=i+1; const h=heroBy(t.hero);
   const ap=h.paths.find(p=>p.name===t.path)||h.paths[0]; const isDef=ap.default;
   const load=(t.loadout||[]).length;
-  const head=`<div class="tbd-head">${portraitHtml(h,"md")}
-    <div class="tbd-meta">
-      <div class="tbd-name">${esc(h.name)}</div>
-      <div class="tbd-sub">
-        <button class="upg-toggle ${t.showUp?"on":""}" data-upg="${i}" title="Toggle base / upgraded skill effects">Upgraded ⬆</button>
-      </div>
-    </div>
-    <select class="tbd-path" data-path="${i}">${h.paths.map(p=>`<option ${p.name===t.path?"selected":""}>${esc(p.name)}</option>`).join("")}</select></div>`;
+  const head=`<div class="tbd-head">
+    <div class="tbd-id" data-remove="${i}" title="Remove ${esc(h.name)} from the team">${portraitHtml(h,"md")}<div class="tbd-name">${esc(h.name)}</div></div>
+    <button class="upg-toggle ${t.showUp?"on":""}" data-upg="${i}" title="Toggle base / upgraded skill effects">Upgraded ⬆</button>
+    <select class="tbd-path" data-path="${i}">${h.paths.map(p=>`<option ${p.name===t.path?"selected":""}>${esc(p.name)}</option>`).join("")}</select>
+  </div>`;
   const edit=`<div class="skc-edit" title="Choose skills"><span style="font-size:1.4rem">✎</span><div>${load?"Edit":"Choose"}</div><div class="skc-count ${load>=5?"full":""}">${load}/5</div></div>`;
   const cards = load===0 ? edit
     : (t.loadout).map(nm=>{ const s=h.skills.find(x=>x.name===nm); return s?skillCardHtml(s,rank,true,ap,isDef,"static",t.showUp):""; }).join("") + edit;
@@ -711,6 +754,7 @@ function renderTBDetail(){
   if(!filled.length){ $("tbDetail").innerHTML=`<div class="tb-empty">Tap heroes on the left to add them to your party — the front rank fills first. Drag the cards in the strip above to reorder ranks. Each hero's loadout appears here.</div>`; return; }
   $("tbDetail").innerHTML=filled.map(({t,i})=>heroBlockHtml(t,i)).join("");
   $("tbDetail").querySelectorAll("select[data-path]").forEach(el=>el.onchange=()=>setPath(+el.dataset.path, el.value));
+  $("tbDetail").querySelectorAll("[data-remove]").forEach(el=>el.onclick=e=>{ e.stopPropagation(); removeSlot(+el.dataset.remove); });
   $("tbDetail").querySelectorAll("[data-upg]").forEach(el=>el.onclick=e=>{ e.stopPropagation(); toggleUpg(+el.dataset.upg); });
   $("tbDetail").querySelectorAll(".sk, .skc-edit").forEach(el=>el.onclick=()=>openSkillModal(+el.closest("[data-slot]").dataset.slot));
 }
@@ -730,12 +774,18 @@ function renderSkillModal(){
   }).join("");
   $("skillModal").innerHTML=`
     <div class="modal-hd">
-      <div style="min-width:0"><div class="mt">${esc(h.name)} — choose skills</div>
+      <div class="mh-title"><div class="mt">${esc(h.name)} — choose skills</div>
         <div class="mc loadout-count ${load>=5?"full":""}">${load}/5 equipped · usability shown for Rank ${rank} ${rank===1?"(front)":rank===4?"(back)":""}</div></div>
       <span class="modal-close" id="skillClose" title="Done">✕</span>
     </div>
+    <div class="mh-controls">
+      <select class="mh-path" id="modalPath" title="Hero path">${h.paths.map(p=>`<option ${p.name===t.path?"selected":""}>${esc(p.name)}</option>`).join("")}</select>
+      <button class="hdr-btn warn" id="modalClear" title="Unequip all skills">Clear loadout</button>
+    </div>
     <div class="modal-body">${rows}</div>`;
   $("skillClose").onclick=closeSkillModal;
+  $("modalPath").onchange=e=>{ team[i].path=e.target.value; saveTeam(); renderBuilder(); renderSkillModal(); };
+  $("modalClear").onclick=()=>{ team[i].loadout=[]; saveTeam(); renderBuilder(); renderSkillModal(); };
   $("skillModal").querySelectorAll(".sk").forEach(el=>el.onclick=()=>toggleSkill(i, el.dataset.skill));
 }
 function pathModExtract(pathsText, name){

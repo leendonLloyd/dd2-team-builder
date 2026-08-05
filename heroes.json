@@ -480,10 +480,10 @@
           "ranks": "3-4",
           "target": "Self / Ally 1-4",
           "type": "Heal",
-          "effect": "Heal 20% when Target Icon HP is below 50%\nRemove Damage over Time\nAllies: 1\n3 uses",
+          "effect": "Heal 20% when Target HP is below 50%\nRemove Damage over Time\nAllies: 1\n3 uses",
           "paths": "Surgeon: +25% heal vs Bleed/Blight/Burn",
           "icon": "icons/skills/plague-doctor_battlefield-medicine.png",
-          "effectUp": "Heal 25% when Target Icon HP is below 50%\nRemove Damage over Time\nSelf: Remove Damage over Time\nAllies: 1\n3 uses"
+          "effectUp": "Heal 25% when Target HP is below 50%\nRemove Damage over Time\nSelf: Remove Damage over Time\nAllies: 1\n3 uses"
         },
         {
           "name": "Ounce of Prevention",
