@@ -297,7 +297,8 @@
         <select class="hdr-btn" id="tbSample" title="Load a sample team">
           <option value="" selected>✨ Sample ▾</option>
           <option value="grandslam">Grand Slam · MAA/Cru/HWM/PD</option>
-          <option value="leper">Leper · Leper/HWM/Jester/PD</option>
+          <option value="leperGR">Leper · Leper/GR/Jester/PD (stress-safe)</option>
+          <option value="leperSharp">Leper · Leper/Cru/HWM/PD (sniper)</option>
           <option value="dot">DoT · Flag/Cru/Run/PD</option>
         </select>
         <button class="hdr-btn warn" id="tbClear" title="Clear team">Clear</button>
@@ -605,10 +606,16 @@ const PRESETS={
     {hero:"Highwayman",path:"Sharpshot",loadout:["Pistol Shot","Take Aim","Double Tap","Grapeshot Blast","Highway Robbery"]},
     {hero:"Plague Doctor",path:"Alchemist",loadout:["Noxious Blast","Plague Grenade","Blinding Gas","Battlefield Medicine","Ounce of Prevention"]},
   ]},
-  leper:{team:[
+  leperGR:{team:[
     {hero:"Leper",path:"Tempest",loadout:["Chop","Ruin","Hew","Intimidate","Solemnity"]},
-    {hero:"Highwayman",path:"Wanderer",loadout:["Tracking Shot","Pistol Shot","Wicked Slice","Grapeshot Blast","Take Aim"]},
+    {hero:"Grave Robber",path:"Nightsworn",loadout:["Thrown Dagger","Poison Dart","Flashing Daggers","Pick to the Face","Absinthe"]},
     {hero:"Jester",path:"Virtuoso",loadout:["Razor's Wit","Inspiring Tune","Battle Ballad","Play Out","Encore"]},
+    {hero:"Plague Doctor",path:"Alchemist",loadout:["Battlefield Medicine","Plague Grenade","Noxious Blast","Blinding Gas","Ounce of Prevention"]},
+  ]},
+  leperSharp:{team:[
+    {hero:"Leper",path:"Tempest",loadout:["Chop","Ruin","Hew","Intimidate","Solemnity"]},
+    {hero:"Crusader",path:"Templar",loadout:["Smite","Inspiring Cry","Rallying Cry","Battle Heal","Bulwark of Faith"]},
+    {hero:"Highwayman",path:"Sharpshot",loadout:["Tracking Shot","Pistol Shot","Take Aim","Double Tap","Grapeshot Blast"]},
     {hero:"Plague Doctor",path:"Alchemist",loadout:["Battlefield Medicine","Plague Grenade","Noxious Blast","Blinding Gas","Ounce of Prevention"]},
   ]},
   dot:{team:[
